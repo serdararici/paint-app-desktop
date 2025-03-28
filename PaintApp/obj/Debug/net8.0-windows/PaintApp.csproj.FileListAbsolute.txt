@@ -3,7 +3,7 @@ D:\Software\C#\SimplePaintApp\PaintApp\bin\Debug\net8.0-windows\PaintApp.deps.js
 D:\Software\C#\SimplePaintApp\PaintApp\bin\Debug\net8.0-windows\PaintApp.runtimeconfig.json
 D:\Software\C#\SimplePaintApp\PaintApp\bin\Debug\net8.0-windows\PaintApp.dll
 D:\Software\C#\SimplePaintApp\PaintApp\bin\Debug\net8.0-windows\PaintApp.pdb
-D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.Form1.resources
+D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.Properties.Resources.resources
 D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.csproj.GenerateResource.cache
 D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.GeneratedMSBuildEditorConfig.editorconfig
 D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.AssemblyInfoInputs.cache
@@ -15,4 +15,4 @@ D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\refint\PaintApp.
 D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.pdb
 D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.genruntimeconfig.cache
 D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\ref\PaintApp.dll
-D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.Properties.Resources.resources
+D:\Software\C#\SimplePaintApp\PaintApp\obj\Debug\net8.0-windows\PaintApp.Form1.resources

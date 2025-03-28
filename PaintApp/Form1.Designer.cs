@@ -31,7 +31,7 @@
             pic = new PictureBox();
             btn_circle = new Button();
             btn_triangle = new Button();
-            btn_square = new Button();
+            btn_rectangle = new Button();
             btn_haxagon = new Button();
             label_drawing_style = new Label();
             label_color_selection = new Label();
@@ -103,22 +103,23 @@
             btn_triangle.Size = new Size(50, 50);
             btn_triangle.TabIndex = 2;
             btn_triangle.UseVisualStyleBackColor = false;
+            btn_triangle.Click += btn_triangle_Click;
             // 
-            // btn_square
+            // btn_rectangle
             // 
-            btn_square.BackColor = Color.White;
-            btn_square.Cursor = Cursors.Hand;
-            btn_square.FlatAppearance.MouseDownBackColor = Color.White;
-            btn_square.FlatAppearance.MouseOverBackColor = Color.Silver;
-            btn_square.FlatStyle = FlatStyle.Flat;
-            btn_square.ForeColor = SystemColors.ControlLight;
-            btn_square.Image = Properties.Resources.square_yellow;
-            btn_square.Location = new Point(7, 11);
-            btn_square.Name = "btn_square";
-            btn_square.Size = new Size(50, 50);
-            btn_square.TabIndex = 3;
-            btn_square.UseVisualStyleBackColor = false;
-            btn_square.Click += btn_square_Click;
+            btn_rectangle.BackColor = Color.White;
+            btn_rectangle.Cursor = Cursors.Hand;
+            btn_rectangle.FlatAppearance.MouseDownBackColor = Color.White;
+            btn_rectangle.FlatAppearance.MouseOverBackColor = Color.Silver;
+            btn_rectangle.FlatStyle = FlatStyle.Flat;
+            btn_rectangle.ForeColor = SystemColors.ControlLight;
+            btn_rectangle.Image = Properties.Resources.square_yellow;
+            btn_rectangle.Location = new Point(7, 11);
+            btn_rectangle.Name = "btn_rectangle";
+            btn_rectangle.Size = new Size(50, 50);
+            btn_rectangle.TabIndex = 3;
+            btn_rectangle.UseVisualStyleBackColor = false;
+            btn_rectangle.Click += btn_rectangle_Click;
             // 
             // btn_haxagon
             // 
@@ -134,6 +135,7 @@
             btn_haxagon.Size = new Size(50, 50);
             btn_haxagon.TabIndex = 4;
             btn_haxagon.UseVisualStyleBackColor = false;
+            btn_haxagon.Click += btn_hexagon_Click;
             // 
             // label_drawing_style
             // 
@@ -271,6 +273,54 @@
             btn_yellow.UseVisualStyleBackColor = false;
             btn_yellow.Click += btn_yellow_Click;
             // 
+            // btn_white
+            // 
+            btn_white.BackColor = Color.White;
+            btn_white.Cursor = Cursors.Hand;
+            btn_white.FlatAppearance.MouseDownBackColor = Color.White;
+            btn_white.FlatAppearance.MouseOverBackColor = Color.Silver;
+            btn_white.FlatStyle = FlatStyle.Flat;
+            btn_white.ForeColor = Color.White;
+            btn_white.Image = Properties.Resources.white;
+            btn_white.Location = new Point(80, 217);
+            btn_white.Name = "btn_white";
+            btn_white.Size = new Size(30, 30);
+            btn_white.TabIndex = 17;
+            btn_white.UseVisualStyleBackColor = false;
+            btn_white.Click += btn_white_Click;
+            // 
+            // btn_brown
+            // 
+            btn_brown.BackColor = Color.White;
+            btn_brown.Cursor = Cursors.Hand;
+            btn_brown.FlatAppearance.MouseDownBackColor = Color.White;
+            btn_brown.FlatAppearance.MouseOverBackColor = Color.Silver;
+            btn_brown.FlatStyle = FlatStyle.Flat;
+            btn_brown.ForeColor = Color.White;
+            btn_brown.Image = Properties.Resources.brown;
+            btn_brown.Location = new Point(44, 217);
+            btn_brown.Name = "btn_brown";
+            btn_brown.Size = new Size(30, 30);
+            btn_brown.TabIndex = 16;
+            btn_brown.UseVisualStyleBackColor = false;
+            btn_brown.Click += btn_brown_Click;
+            // 
+            // btn_purple
+            // 
+            btn_purple.BackColor = Color.White;
+            btn_purple.Cursor = Cursors.Hand;
+            btn_purple.FlatAppearance.MouseDownBackColor = Color.White;
+            btn_purple.FlatAppearance.MouseOverBackColor = Color.Silver;
+            btn_purple.FlatStyle = FlatStyle.Flat;
+            btn_purple.ForeColor = Color.White;
+            btn_purple.Image = Properties.Resources.purple;
+            btn_purple.Location = new Point(7, 217);
+            btn_purple.Name = "btn_purple";
+            btn_purple.Size = new Size(30, 30);
+            btn_purple.TabIndex = 15;
+            btn_purple.UseVisualStyleBackColor = false;
+            btn_purple.Click += btn_purple_Click;
+            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLight;
@@ -296,7 +346,7 @@
             panel1.Controls.Add(label_color_selection);
             panel1.Controls.Add(label_drawing_style);
             panel1.Controls.Add(btn_haxagon);
-            panel1.Controls.Add(btn_square);
+            panel1.Controls.Add(btn_rectangle);
             panel1.Controls.Add(btn_triangle);
             panel1.Controls.Add(btn_circle);
             panel1.Dock = DockStyle.Right;
@@ -319,7 +369,6 @@
             btn_eraser.Size = new Size(30, 30);
             btn_eraser.TabIndex = 24;
             btn_eraser.UseVisualStyleBackColor = false;
-            btn_eraser.Click += btn_eraser_Click;
             // 
             // btn_pencil
             // 
@@ -336,7 +385,6 @@
             btn_pencil.Size = new Size(30, 30);
             btn_pencil.TabIndex = 23;
             btn_pencil.UseVisualStyleBackColor = false;
-            btn_pencil.Click += btn_pencil_Click;
             // 
             // btn_save
             // 
@@ -399,6 +447,7 @@
             btn_delete.Size = new Size(30, 30);
             btn_delete.TabIndex = 19;
             btn_delete.UseVisualStyleBackColor = false;
+            btn_delete.Click += btn_delete_Click;
             // 
             // btn_select
             // 
@@ -414,54 +463,7 @@
             btn_select.Size = new Size(30, 30);
             btn_select.TabIndex = 18;
             btn_select.UseVisualStyleBackColor = false;
-            // 
-            // btn_white
-            // 
-            btn_white.BackColor = Color.White;
-            btn_white.Cursor = Cursors.Hand;
-            btn_white.FlatAppearance.MouseDownBackColor = Color.White;
-            btn_white.FlatAppearance.MouseOverBackColor = Color.Silver;
-            btn_white.FlatStyle = FlatStyle.Flat;
-            btn_white.ForeColor = Color.White;
-            btn_white.Image = Properties.Resources.white;
-            btn_white.Location = new Point(80, 217);
-            btn_white.Name = "btn_white";
-            btn_white.Size = new Size(30, 30);
-            btn_white.TabIndex = 17;
-            btn_white.UseVisualStyleBackColor = false;
-            btn_white.Click += btn_white_Click;
-            // 
-            // btn_brown
-            // 
-            btn_brown.BackColor = Color.White;
-            btn_brown.Cursor = Cursors.Hand;
-            btn_brown.FlatAppearance.MouseDownBackColor = Color.White;
-            btn_brown.FlatAppearance.MouseOverBackColor = Color.Silver;
-            btn_brown.FlatStyle = FlatStyle.Flat;
-            btn_brown.ForeColor = Color.White;
-            btn_brown.Image = Properties.Resources.brown;
-            btn_brown.Location = new Point(44, 217);
-            btn_brown.Name = "btn_brown";
-            btn_brown.Size = new Size(30, 30);
-            btn_brown.TabIndex = 16;
-            btn_brown.UseVisualStyleBackColor = false;
-            btn_brown.Click += btn_brown_Click;
-            // 
-            // btn_purple
-            // 
-            btn_purple.BackColor = Color.White;
-            btn_purple.Cursor = Cursors.Hand;
-            btn_purple.FlatAppearance.MouseDownBackColor = Color.White;
-            btn_purple.FlatAppearance.MouseOverBackColor = Color.Silver;
-            btn_purple.FlatStyle = FlatStyle.Flat;
-            btn_purple.ForeColor = Color.White;
-            btn_purple.Image = Properties.Resources.purple;
-            btn_purple.Location = new Point(7, 217);
-            btn_purple.Name = "btn_purple";
-            btn_purple.Size = new Size(30, 30);
-            btn_purple.TabIndex = 15;
-            btn_purple.UseVisualStyleBackColor = false;
-            btn_purple.Click += btn_purple_Click;
+            btn_select.Click += btn_select_Click;
             // 
             // Form1
             // 
@@ -483,7 +485,7 @@
         private PictureBox pic;
         private Button btn_circle;
         private Button btn_triangle;
-        private Button btn_square;
+        private Button btn_rectangle;
         private Button btn_haxagon;
         private Label label_drawing_style;
         private Label label_color_selection;
