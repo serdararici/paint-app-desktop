@@ -20,7 +20,7 @@ namespace PaintApp.Shapes
 
                 if (IsSelected)
                 {
-                    using (Pen highlightPen = new Pen(Color.Blue, 2))
+                    using (Pen highlightPen = new Pen(Color.Gray, 5))
                     {
                         g.DrawPolygon(highlightPen, points);
                     }

@@ -221,6 +221,9 @@ namespace PaintApp
         private ShapeType currentShapeType = ShapeType.None;
         private Color currentColor = Color.Black;
 
+        private Button selectedShapeButton;
+        private Button selectedColorButton;
+
         private Bitmap bm;
         private Graphics g;
 
@@ -268,8 +271,12 @@ namespace PaintApp
 
         private void pic_MouseDown(object sender, MouseEventArgs e)
         {
-            startX = e.X;
-            startY = e.Y;
+            int maxWidth = bm.Width - 1; 
+            int maxHeight = bm.Height - 1;
+
+            // Sýnýrlarý aþmamak için kontrol yapýyorum.
+            startX = Math.Max(0, Math.Min(e.X, maxWidth));
+            startY = Math.Max(0, Math.Min(e.Y, maxHeight));
 
             if (isSelectionMode)
             {
@@ -293,28 +300,42 @@ namespace PaintApp
             {
                 isDrawing = true;
                 currentShape = CreateShape(currentShapeType);
-                currentShape.X1 = e.X;
-                currentShape.Y1 = e.Y;
+                currentShape.X1 = startX;
+                currentShape.Y1 = startY;
                 currentShape.ShapeColor = currentColor;
             }
         }
 
         private void pic_MouseMove(object sender, MouseEventArgs e)
         {
+            int maxWidth = bm.Width - 1;
+            int maxHeight = bm.Height - 1;
+
             if (isDrawing)
             {
-                currentShape.X2 = e.X;
-                currentShape.Y2 = e.Y;
+                // Sýnýrlarý aþmamak için kontrol yapýyorum.
+                int x = Math.Max(0, Math.Min(e.X, maxWidth));
+                int y = Math.Max(0, Math.Min(e.Y, maxHeight));
+
+                currentShape.X2 = x;
+                currentShape.Y2 = y;
                 pic.Refresh();
             }
         }
 
         private void pic_MouseUp(object sender, MouseEventArgs e)
         {
+            int maxWidth = bm.Width - 1;
+            int maxHeight = bm.Height - 1;
+
             if (isDrawing)
             {
-                currentShape.X2 = e.X;
-                currentShape.Y2 = e.Y;
+                // Sýnýrlarý aþmamak için kontrol yapýyorum.
+                int x = Math.Max(0, Math.Min(e.X, maxWidth));
+                int y = Math.Max(0, Math.Min(e.Y, maxHeight));
+
+                currentShape.X2 = x;
+                currentShape.Y2 = y;
                 shapes.Add(currentShape);
                 isDrawing = false;
                 pic.Refresh();
@@ -358,30 +379,35 @@ namespace PaintApp
         {
             currentShapeType = ShapeType.Rectangle;
             isSelectionMode = false;
+            HighlightButton(sender as Button, ref selectedShapeButton);
         }
 
         private void btn_circle_Click(object sender, EventArgs e)
         {
             currentShapeType = ShapeType.Ellipse;
             isSelectionMode = false;
+            HighlightButton(sender as Button, ref selectedShapeButton);
         }
 
         private void btn_triangle_Click(object sender, EventArgs e)
         {
             currentShapeType = ShapeType.Triangle;
             isSelectionMode = false;
+            HighlightButton(sender as Button, ref selectedShapeButton);
         }
 
         private void btn_hexagon_Click(object sender, EventArgs e)
         {
             currentShapeType = ShapeType.Hexagon;
             isSelectionMode = false;
+            HighlightButton(sender as Button, ref selectedShapeButton);
         }
 
         private void btn_select_Click(object sender, EventArgs e)
         {
             isSelectionMode = true;
             currentShapeType = ShapeType.None;
+            HighlightButton(sender as Button, ref selectedShapeButton);
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -466,20 +492,80 @@ namespace PaintApp
             }
         }
 
-        // Color selection methods (similar to your existing ones)
-        private void SetColor(Color color)
+        private void HighlightButton(Button newSelectedButton, ref Button currentSelectedButton)
         {
-            currentColor = color;
+            // Önceki seçili butonu normal hale getir
+            if (currentSelectedButton != null)
+            {
+                currentSelectedButton.BackColor = SystemColors.Control;
+                currentSelectedButton.FlatAppearance.BorderSize = 1;
+            }
+
+            // Yeni seçilen butonu vurgula
+            if (newSelectedButton != null)
+            {
+                newSelectedButton.BackColor = Color.LightBlue;
+                newSelectedButton.FlatAppearance.BorderSize = 3;
+                newSelectedButton.FlatAppearance.BorderColor = Color.Gray;
+            }
+
+            // Referansý güncelle
+            currentSelectedButton = newSelectedButton;
         }
 
-        private void btn_red_Click(object sender, EventArgs e) => SetColor(Color.Red);
-        private void btn_blue_Click(object sender, EventArgs e) => SetColor(Color.Blue);
-        private void btn_green_Click(object sender, EventArgs e) => SetColor(Color.Green);
-        private void btn_black_Click(object sender, EventArgs e) => SetColor(Color.Black);
-        private void btn_white_Click(object sender, EventArgs e) => SetColor(Color.White);
-        private void btn_yellow_Click(object sender, EventArgs e) => SetColor(Color.Yellow);
-        private void btn_orange_Click(object sender, EventArgs e) => SetColor(Color.Orange);
-        private void btn_purple_Click(object sender, EventArgs e) => SetColor(Color.Purple);
-        private void btn_brown_Click(object sender, EventArgs e) => SetColor(Color.Brown);
+        // Color selection methods (similar to your existing ones)
+        private void SetColor(object sender, Color color)
+        {
+            currentColor = color;
+
+            Button clickedButton = (Button)sender;
+            HighlightButton(clickedButton, ref selectedColorButton);
+        }
+
+        private void btn_red_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Red);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_blue_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Blue);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_green_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Green);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_black_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Black);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_white_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.White);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_yellow_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Yellow);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_orange_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Orange);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_purple_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Purple);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
+        private void btn_brown_Click(object sender, EventArgs e)
+        {
+            SetColor(sender, Color.Brown);
+            HighlightButton(sender as Button, ref selectedColorButton);
+        }
     }
 }
