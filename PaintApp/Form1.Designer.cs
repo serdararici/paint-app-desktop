@@ -47,7 +47,7 @@
             btn_eraser = new Button();
             btn_pencil = new Button();
             btn_save = new Button();
-            btn_folder = new Button();
+            btn_open = new Button();
             btn_newPage = new Button();
             btn_delete = new Button();
             btn_select = new Button();
@@ -280,7 +280,7 @@
             panel1.Controls.Add(btn_eraser);
             panel1.Controls.Add(btn_pencil);
             panel1.Controls.Add(btn_save);
-            panel1.Controls.Add(btn_folder);
+            panel1.Controls.Add(btn_open);
             panel1.Controls.Add(btn_newPage);
             panel1.Controls.Add(btn_delete);
             panel1.Controls.Add(btn_select);
@@ -356,20 +356,21 @@
             btn_save.UseVisualStyleBackColor = false;
             btn_save.Click += btn_save_Click;
             // 
-            // btn_folder
+            // btn_open
             // 
-            btn_folder.BackColor = Color.White;
-            btn_folder.Cursor = Cursors.Hand;
-            btn_folder.FlatAppearance.MouseDownBackColor = Color.White;
-            btn_folder.FlatAppearance.MouseOverBackColor = Color.Silver;
-            btn_folder.FlatStyle = FlatStyle.Flat;
-            btn_folder.ForeColor = Color.White;
-            btn_folder.Image = Properties.Resources.folder;
-            btn_folder.Location = new Point(7, 367);
-            btn_folder.Name = "btn_folder";
-            btn_folder.Size = new Size(30, 30);
-            btn_folder.TabIndex = 21;
-            btn_folder.UseVisualStyleBackColor = false;
+            btn_open.BackColor = Color.White;
+            btn_open.Cursor = Cursors.Hand;
+            btn_open.FlatAppearance.MouseDownBackColor = Color.White;
+            btn_open.FlatAppearance.MouseOverBackColor = Color.Silver;
+            btn_open.FlatStyle = FlatStyle.Flat;
+            btn_open.ForeColor = Color.White;
+            btn_open.Image = Properties.Resources.folder;
+            btn_open.Location = new Point(7, 367);
+            btn_open.Name = "btn_open";
+            btn_open.Size = new Size(30, 30);
+            btn_open.TabIndex = 21;
+            btn_open.UseVisualStyleBackColor = false;
+            btn_open.Click += btn_open_Click;
             // 
             // btn_newPage
             // 
@@ -508,7 +509,7 @@
         private Button btn_purple;
         private Button btn_save;
         private Button btn_pencil;
-        private Button btn_folder;
+        private Button btn_open;
         private Button btn_eraser;
     }
 }

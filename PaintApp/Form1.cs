@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using System.Text.Json;
 using PaintApp.Shapes;
 
 namespace PaintApp
@@ -173,13 +174,12 @@ namespace PaintApp
 
         private void pic_Paint(object sender, PaintEventArgs e)
         {
-            // Draw existing shapes
+
             foreach (var shape in shapes)
             {
                 shape.Draw(e.Graphics);
             }
 
-            // Draw current shape while drawing
             if (isDrawing && currentShape != null)
             {
                 currentShape.Draw(e.Graphics);
@@ -203,7 +203,6 @@ namespace PaintApp
             }
         }
 
-        // Button click handlers for shape selection
         private void btn_rectangle_Click(object sender, EventArgs e)
         {
             currentShapeType = ShapeType.Rectangle;
@@ -249,7 +248,6 @@ namespace PaintApp
         {
             if (bm != null)
             {
-                // Dispose of previous bitmap and graphics
                 if (g != null)
                     g.Dispose();
 
@@ -271,28 +269,39 @@ namespace PaintApp
         private void btn_eraser_Click(object sender, EventArgs e)
         {
             index = 2;
+            HighlightButton(sender as Button, ref selectedShapeButton);
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            if (bm == null)
-            {
-                MessageBox.Show("No image to save!");
-                return;
-            }
-
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Image(*.jpg)|*.jpg|(*.*|*.*";
+            sfd.Filter = "Shape Data (*.shapes)|*.shapes|All Files (*.*)|*.*";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    // Use Clone to create a new bitmap before saving
-                    using (Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height), bm.PixelFormat))
+                    List<Dictionary<string, object>> shapesData = new List<Dictionary<string, object>>();
+
+                    foreach (var shape in shapes)
                     {
-                        btm.Save(sfd.FileName, ImageFormat.Jpeg);
+                        Dictionary<string, object> shapeData = new Dictionary<string, object>();
+                        shapeData["Type"] = shape.GetType().Name;
+                        shapeData["X1"] = shape.X1;
+                        shapeData["Y1"] = shape.Y1;
+                        shapeData["X2"] = shape.X2;
+                        shapeData["Y2"] = shape.Y2;
+                        shapeData["R"] = shape.ShapeColor.R;
+                        shapeData["G"] = shape.ShapeColor.G;
+                        shapeData["B"] = shape.ShapeColor.B;
+
+                        shapesData.Add(shapeData);
                     }
-                    MessageBox.Show("Image saved successfully");
+
+                    string json = System.Text.Json.JsonSerializer.Serialize(shapesData);
+
+                    System.IO.File.WriteAllText(sfd.FileName, json);
+
+                    MessageBox.Show("Shapes saved successfully");
                 }
                 catch (Exception ex)
                 {
@@ -304,22 +313,56 @@ namespace PaintApp
         private void btn_open_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image(*.jpg)|*.jpg|(*.*|*.*";
+            ofd.Filter = "Shape Data (*.shapes)|*.shapes|All Files (*.*)|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    if (bm != null)
-                        bm.Dispose();
+                    string json = System.IO.File.ReadAllText(ofd.FileName);
 
-                    bm = new Bitmap(ofd.FileName);
+                    List<Dictionary<string, JsonElement>> shapesData =
+                        System.Text.Json.JsonSerializer.Deserialize<List<Dictionary<string, JsonElement>>>(json);
 
-                    if (g != null)
-                        g.Dispose();
+                    shapes.Clear();
 
-                    g = Graphics.FromImage(bm);
-                    pic.Image = bm;
+                    foreach (var shapeData in shapesData)
+                    {
+                        Shape shape = null;
+
+                        string typeName = shapeData["Type"].GetString();
+                        switch (typeName)
+                        {
+                            case "RectangleShape":
+                                shape = new RectangleShape();
+                                break;
+                            case "EllipseShape":
+                                shape = new EllipseShape();
+                                break;
+                            case "TriangleShape":
+                                shape = new TriangleShape();
+                                break;
+                            case "HexagonShape":
+                                shape = new HexagonShape();
+                                break;
+                            default:
+                                continue;
+                        }
+
+                        shape.X1 = shapeData["X1"].GetInt32();
+                        shape.Y1 = shapeData["Y1"].GetInt32();
+                        shape.X2 = shapeData["X2"].GetInt32();
+                        shape.Y2 = shapeData["Y2"].GetInt32();
+                        shape.ShapeColor = Color.FromArgb(
+                            shapeData["R"].GetInt32(),
+                            shapeData["G"].GetInt32(),
+                            shapeData["B"].GetInt32()
+                        );
+
+                        shapes.Add(shape);
+                    }
+
                     pic.Refresh();
+                    MessageBox.Show("Shapes loaded successfully");
                 }
                 catch (Exception ex)
                 {
@@ -327,6 +370,7 @@ namespace PaintApp
                 }
             }
         }
+
 
         private void HighlightButton(Button newSelectedButton, ref Button currentSelectedButton)
         {
