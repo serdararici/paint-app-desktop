@@ -17,7 +17,7 @@ namespace PaintApp.Shapes
 
                 if (IsSelected)
                 {
-                    using (Pen highlightPen = new Pen(Color.Gray, 3))
+                    using (Pen highlightPen = new Pen(Color.Gray, 5))
                     {
                         g.DrawRectangle(highlightPen, x - 2, y - 2, width + 4, height + 4);
                     }

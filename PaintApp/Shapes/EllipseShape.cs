@@ -17,7 +17,7 @@ namespace PaintApp.Shapes
 
                 if (IsSelected)
                 {
-                    using (Pen highlightPen = new Pen(Color.Blue, 2))
+                    using (Pen highlightPen = new Pen(Color.Gray, 5))
                     {
                         g.DrawEllipse(highlightPen, x - 2, y - 2, width + 4, height + 4);
                     }

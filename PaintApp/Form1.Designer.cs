@@ -171,7 +171,7 @@
             // 
             label_file_operations.AutoSize = true;
             label_file_operations.Font = new Font("Segoe UI", 7F, FontStyle.Bold | FontStyle.Underline);
-            label_file_operations.Location = new Point(7, 318);
+            label_file_operations.Location = new Point(7, 352);
             label_file_operations.Name = "label_file_operations";
             label_file_operations.Size = new Size(90, 12);
             label_file_operations.TabIndex = 8;
@@ -316,11 +316,12 @@
             btn_eraser.FlatStyle = FlatStyle.Flat;
             btn_eraser.ForeColor = Color.White;
             btn_eraser.Image = Properties.Resources.eraser;
-            btn_eraser.Location = new Point(59, 395);
+            btn_eraser.Location = new Point(44, 310);
             btn_eraser.Name = "btn_eraser";
             btn_eraser.Size = new Size(30, 30);
             btn_eraser.TabIndex = 24;
             btn_eraser.UseVisualStyleBackColor = false;
+            btn_eraser.Click += btn_eraser_Click;
             // 
             // btn_pencil
             // 
@@ -332,11 +333,12 @@
             btn_pencil.ForeColor = Color.White;
             btn_pencil.Image = Properties.Resources.pencil;
             btn_pencil.ImageAlign = ContentAlignment.TopRight;
-            btn_pencil.Location = new Point(7, 395);
+            btn_pencil.Location = new Point(7, 310);
             btn_pencil.Name = "btn_pencil";
             btn_pencil.Size = new Size(30, 30);
             btn_pencil.TabIndex = 23;
             btn_pencil.UseVisualStyleBackColor = false;
+            btn_pencil.Click += btn_pencil_Click;
             // 
             // btn_save
             // 
@@ -347,7 +349,7 @@
             btn_save.FlatStyle = FlatStyle.Flat;
             btn_save.ForeColor = Color.White;
             btn_save.Image = Properties.Resources.file_save;
-            btn_save.Location = new Point(44, 333);
+            btn_save.Location = new Point(44, 367);
             btn_save.Name = "btn_save";
             btn_save.Size = new Size(30, 30);
             btn_save.TabIndex = 22;
@@ -363,7 +365,7 @@
             btn_folder.FlatStyle = FlatStyle.Flat;
             btn_folder.ForeColor = Color.White;
             btn_folder.Image = Properties.Resources.folder;
-            btn_folder.Location = new Point(7, 333);
+            btn_folder.Location = new Point(7, 367);
             btn_folder.Name = "btn_folder";
             btn_folder.Size = new Size(30, 30);
             btn_folder.TabIndex = 21;

@@ -3,23 +3,31 @@
   "WorkspaceRootPath": "D:\\Software\\C#\\SimplePaintApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\shapes\\triangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\shapes\\triangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\shapes\\rectangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\shapes\\rectangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\shapes\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\shapes\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\shapes\\hexagonshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\shapes\\hexagonshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\shapes\\ellipseshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\shapes\\ellipseshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\shapes\\rectangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\shapes\\rectangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|d:\\software\\c#\\simplepaintapp\\paintapp\\shapes\\triangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\shapes\\triangleshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|D:\\Software\\C#\\SimplePaintApp\\paintapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AF9F2138-2706-4107-8AEB-E92EA8C967F2}|PaintApp\\PaintApp.csproj|solutionrelative:paintapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -34,24 +42,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "HexagonShape.cs",
+              "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\HexagonShape.cs",
+              "RelativeDocumentMoniker": "PaintApp\\Shapes\\HexagonShape.cs",
+              "ToolTip": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\HexagonShape.cs",
+              "RelativeToolTip": "PaintApp\\Shapes\\HexagonShape.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowBAAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T19:34:13.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EllipseShape.cs",
+              "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\EllipseShape.cs",
+              "RelativeDocumentMoniker": "PaintApp\\Shapes\\EllipseShape.cs",
+              "ToolTip": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\EllipseShape.cs",
+              "RelativeToolTip": "PaintApp\\Shapes\\EllipseShape.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T19:34:07.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "TriangleShape.cs",
               "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\TriangleShape.cs",
               "RelativeDocumentMoniker": "PaintApp\\Shapes\\TriangleShape.cs",
               "ToolTip": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\TriangleShape.cs",
               "RelativeToolTip": "PaintApp\\Shapes\\TriangleShape.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wBYAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBYAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-29T00:27:20.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Shape.cs",
               "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\Shape.cs",
               "RelativeDocumentMoniker": "PaintApp\\Shapes\\Shape.cs",
@@ -64,46 +98,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "RectangleShape.cs",
               "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\RectangleShape.cs",
               "RelativeDocumentMoniker": "PaintApp\\Shapes\\RectangleShape.cs",
               "ToolTip": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Shapes\\RectangleShape.cs",
               "RelativeToolTip": "PaintApp\\Shapes\\RectangleShape.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBMAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-28T04:07:47.131Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "PaintApp\\Form1.Designer.cs",
               "ToolTip": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Form1.Designer.cs",
               "RelativeToolTip": "PaintApp\\Form1.Designer.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAhwBYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-27T12:10:55.056Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Form1.cs",
               "RelativeDocumentMoniker": "PaintApp\\Form1.cs",
               "ToolTip": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Form1.cs",
               "RelativeToolTip": "PaintApp\\Form1.cs",
-              "ViewState": "AgIAAEoBAAAAAAAAAAAwwPsBAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkBAAAAAAAAAAAAwBEBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-26T16:07:43.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\Software\\C#\\SimplePaintApp\\PaintApp\\Form1.cs",
               "RelativeDocumentMoniker": "PaintApp\\Form1.cs",

@@ -7,210 +7,6 @@ using PaintApp.Shapes;
 
 namespace PaintApp
 {
-    /*
-    // Abstract base class for shapes
-    public abstract class Shape
-    {
-        public int X1 { get; set; }
-        public int Y1 { get; set; }
-        public int X2 { get; set; }
-        public int Y2 { get; set; }
-        public Color ShapeColor { get; set; }
-        public bool IsSelected { get; set; }
-
-        public abstract void Draw(Graphics g);
-        public abstract bool Contains(int x, int y);
-    }
-    
-    
-    
-    // Concrete shape implementations
-    public class RectangleShape : Shape
-    {
-        public override void Draw(Graphics g)
-        {
-            using (Pen pen = new Pen(ShapeColor, IsSelected ? 3 : 1))
-            {
-                int x = Math.Min(X1, X2);
-                int y = Math.Min(Y1, Y2);
-                int width = Math.Abs(X2 - X1);
-                int height = Math.Abs(Y2 - Y1);
-                g.DrawRectangle(pen, x, y, width, height);
-
-                if (IsSelected)
-                {
-                    // Draw selection highlight
-                    using (Pen highlightPen = new Pen(Color.Blue, 2))
-                    {
-                        g.DrawRectangle(highlightPen, x - 2, y - 2, width + 4, height + 4);
-                    }
-                }
-            }
-        }
-
-        public override bool Contains(int x, int y)
-        {
-            int left = Math.Min(X1, X2);
-            int top = Math.Min(Y1, Y2);
-            int right = Math.Max(X1, X2);
-            int bottom = Math.Max(Y1, Y2);
-
-            return x >= left && x <= right && y >= top && y <= bottom;
-        }
-    }
-
-    public class EllipseShape : Shape
-    {
-        public override void Draw(Graphics g)
-        {
-            using (Pen pen = new Pen(ShapeColor, IsSelected ? 3 : 1))
-            {
-                int x = Math.Min(X1, X2);
-                int y = Math.Min(Y1, Y2);
-                int width = Math.Abs(X2 - X1);
-                int height = Math.Abs(Y2 - Y1);
-                g.DrawEllipse(pen, x, y, width, height);
-
-                if (IsSelected)
-                {
-                    // Draw selection highlight
-                    using (Pen highlightPen = new Pen(Color.Blue, 2))
-                    {
-                        g.DrawRectangle(highlightPen, x - 2, y - 2, width + 4, height + 4);
-                    }
-                }
-            }
-        }
-
-        public override bool Contains(int x, int y)
-        {
-            // Simple bounding box check - could be improved for more precise ellipse detection
-            int left = Math.Min(X1, X2);
-            int top = Math.Min(Y1, Y2);
-            int right = Math.Max(X1, X2);
-            int bottom = Math.Max(Y1, Y2);
-
-            return x >= left && x <= right && y >= top && y <= bottom;
-        }
-    }
-
-    public class TriangleShape : Shape
-    {
-        public override void Draw(Graphics g)
-        {
-            using (Pen pen = new Pen(ShapeColor, IsSelected ? 3 : 1))
-            {
-                // Üçgenin köþelerini hesapla
-                Point[] points = new Point[]
-                {
-            new Point((X1 + X2) / 2, Y1), // Üst nokta (tabanýn ortasý)
-            new Point(X1, Y2),             // Alt sol nokta
-            new Point(X2, Y2)              // Alt sað nokta
-                };
-
-                g.DrawPolygon(pen, points);
-
-                if (IsSelected)
-                {
-                    // Seçim kutusu çiz
-                    using (Pen highlightPen = new Pen(Color.Blue, 2))
-                    {
-                        g.DrawPolygon(highlightPen, points);
-                    }
-                }
-            }
-        }
-
-
-        public override bool Contains(int x, int y)
-        {
-            // Üçgenin köþelerini hesapla
-            Point[] points = new Point[]
-            {
-                new Point((X1 + X2) / 2, Y1), // Üst nokta (tabanýn ortasý)
-                new Point(X1, Y2),             // Alt sol nokta
-                new Point(X2, Y2)              // Alt sað nokta
-            };
-
-            // Daha hassas bir noktayý içerip içermediðini kontrol etmek için daha doðru bir algoritma
-            int i, j = 2;
-            bool inside = false;
-            for (i = 0; i < 3; j = i++)
-            {
-                if (((points[i].Y > y) != (points[j].Y > y)) &&
-                    (x < (points[j].X - points[i].X) * (y - points[i].Y) /
-                    (points[j].Y - points[i].Y) + points[i].X))
-                {
-                    inside = !inside;
-                }
-            }
-            return inside;
-        }
-    }
-
-    public class HexagonShape : Shape
-    {
-        public override void Draw(Graphics g)
-        {
-            using (Pen pen = new Pen(ShapeColor, IsSelected ? 3 : 1))
-            {
-                // Calculate hexagon points based on start and end coordinates
-                Point[] points = CalculateHexagonPoints();
-
-                g.DrawPolygon(pen, points);
-
-                if (IsSelected)
-                {
-                    // Draw selection highlight
-                    using (Pen highlightPen = new Pen(Color.Blue, 2))
-                    {
-                        g.DrawPolygon(highlightPen, points);
-                    }
-                }
-            }
-        }
-
-        private Point[] CalculateHexagonPoints()
-        {
-            Point[] points = new Point[6];
-            int centerX = (X1 + X2) / 2;
-            int centerY = (Y1 + Y2) / 2;
-            int width = Math.Abs(X2 - X1);
-            int height = Math.Abs(Y2 - Y1);
-            double radius = Math.Min(width, height) / 2;
-
-            for (int i = 0; i < 6; i++)
-            {
-                double angle = i * Math.PI / 3;
-                points[i] = new Point(
-                    (int)(centerX + radius * Math.Cos(angle)),
-                    (int)(centerY + radius * Math.Sin(angle))
-                );
-            }
-
-            return points;
-        }
-
-        public override bool Contains(int x, int y)
-        {
-            // Similar point-in-polygon logic as triangle
-            Point[] points = CalculateHexagonPoints();
-            bool inside = false;
-            for (int i = 0, j = points.Length - 1; i < points.Length; j = i++)
-            {
-                if (((points[i].Y > y) != (points[j].Y > y)) &&
-                    (x < (points[j].X - points[i].X) * (y - points[i].Y) /
-                    (points[j].Y - points[i].Y) + points[i].X))
-                {
-                    inside = !inside;
-                }
-            }
-            return inside;
-        }
-    }
-
-    */
-
     public partial class Form1 : Form
     {
         private List<Shape> shapes = new List<Shape>();
@@ -220,6 +16,14 @@ namespace PaintApp
         private int startX, startY;
         private ShapeType currentShapeType = ShapeType.None;
         private Color currentColor = Color.Black;
+
+        bool paint = false;
+        Point px, py;
+        Pen p = new Pen(Color.Black, 1);
+        Pen erase = new Pen(Color.White, 10);
+        int index;
+        int x, y, sX, sY, cX, cY;
+
 
         private Button selectedShapeButton;
         private Button selectedColorButton;
@@ -249,7 +53,6 @@ namespace PaintApp
             this.Width = 1200;
             this.Height = 700;
 
-            // Ensure pic is not null before creating bitmap
             if (pic != null)
             {
                 bm = new Bitmap(pic.Width, pic.Height);
@@ -262,16 +65,19 @@ namespace PaintApp
                 MessageBox.Show("PictureBox control not found!");
             }
 
-            // Additional setup for selection and shape drawing
-            pic.MouseDown += pic_MouseDown;
-            pic.MouseMove += pic_MouseMove;
-            pic.MouseUp += pic_MouseUp;
-            pic.Paint += pic_Paint;
+
         }
 
         private void pic_MouseDown(object sender, MouseEventArgs e)
         {
-            int maxWidth = bm.Width - 1; 
+            //çizim iþlemi için
+            paint = true;
+            py = e.Location;
+            cX = e.X;
+            cY = e.Y;
+
+            //þekil çizimleri için
+            int maxWidth = bm.Width - 1;
             int maxHeight = bm.Height - 1;
 
             // Sýnýrlarý aþmamak için kontrol yapýyorum.
@@ -280,10 +86,8 @@ namespace PaintApp
 
             if (isSelectionMode)
             {
-                // Deselect all shapes first
                 shapes.ForEach(s => s.IsSelected = false);
 
-                // Check if any shape is clicked
                 foreach (var shape in shapes)
                 {
                     if (shape.Contains(e.X, e.Y))
@@ -321,10 +125,35 @@ namespace PaintApp
                 currentShape.Y2 = y;
                 pic.Refresh();
             }
+
+            if (paint)
+            {
+                if (index == 1)
+                {
+                    px = e.Location;
+                    g.DrawLine(p, px, py);
+                    py = px;
+                }
+                if (index == 2)
+                {
+                    px = e.Location;
+                    g.DrawLine(erase, px, py);
+                    py = px;
+                }
+                pic.Refresh();
+            }
+            x = e.X;
+            y = e.Y;
+            sX = e.X - cX;
+            sY = e.Y - cY;
         }
 
         private void pic_MouseUp(object sender, MouseEventArgs e)
         {
+            paint = false;
+            sX = x - cX;
+            sY = y - cY;
+
             int maxWidth = bm.Width - 1;
             int maxHeight = bm.Height - 1;
 
@@ -434,6 +263,15 @@ namespace PaintApp
             pic.Refresh();
         }
 
+        private void btn_pencil_Click(object sender, EventArgs e)
+        {
+            index = 1;
+        }
+
+        private void btn_eraser_Click(object sender, EventArgs e)
+        {
+            index = 2;
+        }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
@@ -471,13 +309,11 @@ namespace PaintApp
             {
                 try
                 {
-                    // Dispose of previous bitmap if it exists
                     if (bm != null)
                         bm.Dispose();
 
                     bm = new Bitmap(ofd.FileName);
 
-                    // Dispose of previous graphics if it exists
                     if (g != null)
                         g.Dispose();
 
@@ -494,14 +330,14 @@ namespace PaintApp
 
         private void HighlightButton(Button newSelectedButton, ref Button currentSelectedButton)
         {
-            // Önceki seçili butonu normal hale getir
+            // Önceki seçili butonu normal hale getirmek için kontrol yaptým
             if (currentSelectedButton != null)
             {
                 currentSelectedButton.BackColor = SystemColors.Control;
                 currentSelectedButton.FlatAppearance.BorderSize = 1;
             }
 
-            // Yeni seçilen butonu vurgula
+            // Yeni seçilen buton için renklendirme iþlemi yaptým
             if (newSelectedButton != null)
             {
                 newSelectedButton.BackColor = Color.LightBlue;
@@ -509,11 +345,10 @@ namespace PaintApp
                 newSelectedButton.FlatAppearance.BorderColor = Color.Gray;
             }
 
-            // Referansý güncelle
+   
             currentSelectedButton = newSelectedButton;
         }
 
-        // Color selection methods (similar to your existing ones)
         private void SetColor(object sender, Color color)
         {
             currentColor = color;
@@ -567,5 +402,7 @@ namespace PaintApp
             SetColor(sender, Color.Brown);
             HighlightButton(sender as Button, ref selectedColorButton);
         }
+
+        
     }
 }
