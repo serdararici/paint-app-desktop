@@ -475,6 +475,7 @@
             ClientSize = new Size(1184, 661);
             Controls.Add(panel1);
             Controls.Add(pic);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Paint App";

@@ -174,7 +174,6 @@ namespace PaintApp
 
         private void pic_Paint(object sender, PaintEventArgs e)
         {
-
             foreach (var shape in shapes)
             {
                 shape.Draw(e.Graphics);
@@ -184,6 +183,7 @@ namespace PaintApp
             {
                 currentShape.Draw(e.Graphics);
             }
+
         }
 
         private Shape CreateShape(ShapeType type)
@@ -264,6 +264,8 @@ namespace PaintApp
         private void btn_pencil_Click(object sender, EventArgs e)
         {
             index = 1;
+            currentShapeType = ShapeType.None;
+            HighlightButton(sender as Button, ref selectedShapeButton);
         }
 
         private void btn_eraser_Click(object sender, EventArgs e)
@@ -389,7 +391,7 @@ namespace PaintApp
                 newSelectedButton.FlatAppearance.BorderColor = Color.Gray;
             }
 
-   
+
             currentSelectedButton = newSelectedButton;
         }
 
@@ -446,7 +448,5 @@ namespace PaintApp
             SetColor(sender, Color.Brown);
             HighlightButton(sender as Button, ref selectedColorButton);
         }
-
-        
     }
 }
